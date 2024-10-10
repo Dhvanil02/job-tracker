@@ -120,45 +120,6 @@ def scrape_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# def send_mail_user(python_jobs, user_name):
-#     fromaddr = "dhvanil.magictech@gmail.com"
-#     toaddr = "dhvanil02@gmail.com"
-#     msg = MIMEMultipart('alternative')
-#     msg['From'] = fromaddr
-#     msg['To'] = toaddr
-#     msg['Subject'] = subject
-
-#     subject = "Follow-up on Flutter App Assistance"
-#     body = f"""\
-#     Hello {user_name},
-
-#     Hope you are doing fine.
-
-#     We are in a discussion on LinkedIn where you mentioned you needed some assistance with your app written in Flutter. You asked about the rates to which we shared part-time rates of USD xy and full-time rates of USD xy per hour. Since I didn’t hear back from you, I thought of dropping you an email.
-
-#     Looking forward to hearing from you soon; we can also schedule a quick call to explore how we can assist you with your needs!
-#     """
-#     # body_html = render_to_string("payment-failed-email.html", context={'username': username})
-#     # body_text = strip_tags(body_html)
-#     # msg.content_subtype = "html" 
-#     msg.attach(MIMEText(body_text, 'plain'))
-#     msg.attach(MIMEText(body_html, 'html'))
-#     try:
-#         smtp_server = "smtp.gmail.com"
-#         smtp_port = "587"
-#         # server = smtplib.SMTP('smtp.gmail.com:587')
-#         server = smtplib.SMTP(f'{smtp_server}:{smtp_port}')
-#         server.starttls()
-#         server.login(fromaddr, str("ojiv ekhr uvsn dgcr"))
-#         text = msg.as_string()
-#         server.sendmail(fromaddr, toaddr, text)
-#         print('Email sent successfully')
-#     except Exception as e:
-#         print(f'Error sending email: {str(e)}')
-#     finally:
-#         server.quit()
-
-
 def send_email(to_email, json_data, user_name):
     # Email and password for the sender's email account
     from_email = "dhvanil.magictech@gmail.com"
