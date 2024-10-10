@@ -1,0 +1,45 @@
+  {
+  "name": "Linkedin Job Scraper",
+  "version": "1.0",
+  "description": "Linkedin Job Scraper.",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "scripting",
+    "activeTab",
+    "identity",
+    "identity.email",
+    "storage",
+    "cookies"
+  ],
+  "host_permissions": [
+    "http://*/",
+    "http://localhost/",
+    "https://*/",
+    "*://*.google.com/"
+  ],
+  "action": {}, 
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/in/*"
+      ],
+      "js": [
+          "start.js",
+          "assets/bundles/swal.js"
+      ],
+      "css": ["./assets/css/linkedinInject.css", "./assets/css/swal.css"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["index.html","assets/images/*"],
+    "matches": ["https://www.linkedin.com/*"],
+    "extension_ids": []
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; script-src-elem * 'unsafe-inline'; object-src 'self';"
+  }
+}
