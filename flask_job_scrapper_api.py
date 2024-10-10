@@ -83,7 +83,8 @@ def scrape_company_jobs(company_name, cookies, job_id, employee_name):
                 continue
         
         results[job_id] = python_jobs
-        send_email("dhvanil02@gmail.com",python_jobs, employee_name)
+        if len(python_jobs) > 0:
+            send_email("dhvanil02@gmail.com",python_jobs, employee_name)
     except Exception as e:
         print(f"Error occurred: {e}")
         return []
