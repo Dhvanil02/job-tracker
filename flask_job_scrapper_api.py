@@ -122,8 +122,8 @@ def scrape_jobs():
 
 def send_email(to_email, json_data, user_name):
     # Email and password for the sender's email account
-    from_email = "dhvanil.magictech@gmail.com"
-    password = "ojiv ekhr uvsn dgcr"  # Use an app password if 2FA is enabled
+    from_email = "YOUR_EMAIL_ADDRESS"
+    password = "YOUR_EMAIL_PASSWORD"  # Use an app password if 2FA is enabled
     json_dumps_data = json.dumps(json_data, indent=4)
     # Set up the MIME
     msg = MIMEMultipart()
